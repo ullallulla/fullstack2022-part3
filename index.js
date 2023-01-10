@@ -28,6 +28,12 @@ let persons = [
 
 app.use(express.json())
 
+app.get('/info', (request, response) => {
+
+    let timestamp = new Date()
+    response.send(`<p>Phonebook has info for ${persons.length} people </p>  <p>${timestamp}</p>`)
+})
+
 app.get('/api/persons', (request, response) => {
     response.json(persons)
   })
